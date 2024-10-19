@@ -1,0 +1,104 @@
+/* .Chat{
+    background-color: rgb(214, 136, 152);
+    height: 100%;
+    width: 70%;
+
+} */
+
+.Chat {
+  /* background-color: #3b4952; */
+  background-image: url("https://w0.peakpx.com/wallpaper/998/17/HD-wallpaper-green-theme-background-whatsapp-thumbnail.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%; /* 100% of parent (chat-container)'s height */
+  width: 70%; /* 70% width */
+}
+
+.chat_header{
+  color: white;
+  background-color: #363636;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* padding: 10px; */
+  position: relative;
+}
+
+.chat_header > .chat_avtar_header{
+ width: 50px;
+ height: 50px;
+ margin-left: 10;
+}
+
+.chat_name{
+  margin-left: 20px;
+}
+
+.phone{
+  position: absolute;
+  right: 120px;
+}
+
+.video{
+  position: absolute;
+  right: 80px;
+}
+
+.search{
+  position: absolute;
+  right: 40px;
+}
+
+/*chat body */
+
+.chat_body{
+  height: 82%;
+  /* width: 100%; */
+  padding: 0px 25px;
+}
+
+.chat_footer{
+  height: 8%;
+  background-color: #272424;
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* position: absolute; */
+  bottom: 0;
+}
+
+.chat_footer > input{
+  width: 85%;
+  padding: 5px;
+  border-bottom: 1px solid green;
+  background-color: #272424;
+  border: none;
+  outline: 0;
+  color: white;
+}
+
+.chat_message{
+  /* margin-top: 10px; */
+  width: 30%;
+  background-color: #272424;
+  color: white;
+  padding: 10px;
+  /* margin-left: 25px; */
+  border-radius: 10px;
+  position: relative;
+}
+
+.chat_message > span{
+font-size: 10px;
+position: absolute;
+bottom: 5px;
+right: 5px;
+}
+
+.chat_sent{
+  margin-left: auto;
+  background-color: rgb(23, 138, 113);
+}
