@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Sidebar.css";
 import Sidebarchat from "./Sidebarchat";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
@@ -7,17 +7,27 @@ import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { DataContext } from "../context/DataProvider";
 
-export default function Sidebar({ chatlist }) {
-  let x = new Date().toLocaleTimeString();
-
+export default function Sidebar() {
+  // let x = new Date().toLocaleTimeString();
+  const { chatlist } = useContext(DataContext);
+  
   const [reveal, setReveal] = useState(false);
 
   const [searchvalue, setSearchvalue] = useState("");
 
+  const [newchatlist, setNewchatlist] = useState(chatlist);
+
   const handleChange = (e) => {
     setSearchvalue(e.target.value);
-    console.log(e.target.value);
+    let newlist = chatlist.filter(
+      (chat) =>
+        chat.name.toLowerCase().indexOf(e.target.value.toLowerCase()) >= 0
+    );
+    setNewchatlist(newlist);
+    // console.log(e.target.value);
+    // console.log(newchatlist);
   };
   const handleRevel = () => {
     setReveal(!reveal);
@@ -66,11 +76,11 @@ export default function Sidebar({ chatlist }) {
           <p>archived section</p>
         </div>
         <div className="sidebar_chat_list">
-          <Sidebarchat chatlist={chatlist} />
+          <Sidebarchat newchatlist={newchatlist} />
         </div>
       </div>
       <div className="sidebar_chat_list">
-        <Sidebarchat chatlist={chatlist} />
+        <Sidebarchat newchatlist={newchatlist} />
       </div>
     </div>
   );
