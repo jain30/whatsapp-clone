@@ -40,6 +40,11 @@
   position: relative;
 }
 
+.sidebar_avtar_name{
+  font-size: 20px;
+  margin-left: 15px;
+}
+
 .Sidebar > .sidebar_header > .sidebar_avtar_icon {
   width: 40px;
   height: 40px;
@@ -173,7 +178,7 @@
   top: 16%;
   z-index: 2;
   height: 84%;
-  transition: all 0.3s;
+  transition: all 0.1s ease;
   color: white;
   display: flex;
   flex-direction: column;
@@ -197,7 +202,7 @@
 
 .dropdown_content {
   position: absolute;
-  bottom: -50px;
+  bottom: -48px;
   right: 0px;
  z-index: 2000;
 }

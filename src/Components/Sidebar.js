@@ -11,8 +11,8 @@ import { DataContext } from "../context/DataProvider";
 
 export default function Sidebar() {
   // let x = new Date().toLocaleTimeString();
-  const { chatlist } = useContext(DataContext);
-  
+  const {account ,chatlist } = useContext(DataContext);
+
   const [reveal, setReveal] = useState(false);
 
   const [searchvalue, setSearchvalue] = useState("");
@@ -37,14 +37,24 @@ export default function Sidebar() {
   //   setReveal(!reveal);
   // };
 
+  const getNoOfArchivedChats = () => {
+    let number = 0;
+    chatlist.map((chat, index) => {
+      if (chat.archived === true) {
+        number = number + 1;
+      }
+    });
+    // console.log(archivedChats)
+    return number;
+  };
   return (
     <div className="Sidebar">
       <div className="sidebar_header">
         <Avatar
           className="sidebar_avtar_icon"
-          src="https://mui.com/static/images/avatar/2.jpg"
+          src={account?.pic}
         />
-        <h5>Chats</h5>
+        <p  className="sidebar_avtar_name">{account?.name}</p>
         <BorderColorIcon className="sidebarIcon edit" />
         <MoreHorizIcon className="sidebarIcon more" />
       </div>
@@ -61,7 +71,7 @@ export default function Sidebar() {
       <div className="sidebar_archived" onClick={handleRevel}>
         <BusinessCenterIcon className="archived" />
         Archived
-        <div className="archived_number">2</div>
+        <div className="archived_number">{getNoOfArchivedChats()}</div>
       </div>
 
       <div
@@ -76,11 +86,11 @@ export default function Sidebar() {
           <p>archived section</p>
         </div>
         <div className="sidebar_chat_list">
-          <Sidebarchat newchatlist={newchatlist} />
+          <Sidebarchat newchatlist={newchatlist} reveal={reveal} />
         </div>
       </div>
       <div className="sidebar_chat_list">
-        <Sidebarchat newchatlist={newchatlist} />
+        <Sidebarchat newchatlist={newchatlist} reveal={reveal} />
       </div>
     </div>
   );

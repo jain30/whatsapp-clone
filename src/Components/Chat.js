@@ -21,7 +21,7 @@ export default function Chat() {
       <div className="chat_header">
         <Avatar
           className="chat_avtar_header"
-          src={currentchat.pic}
+          src={currentchat.pic} 
         />
         <div className="chat_name">
           <h3>{currentchat.name}</h3>
